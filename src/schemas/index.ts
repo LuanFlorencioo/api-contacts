@@ -1,4 +1,8 @@
 import {
+  loginSchemaRequest,
+  loginSchemaResponse,
+} from "./login";
+import {
   clientSchema,
   clientSchemaRequest,
   clientSchemaUpdate,
@@ -7,6 +11,8 @@ import {
 } from "./clients";
 
 export {
+  loginSchemaRequest,
+  loginSchemaResponse,
   clientSchema,
   clientSchemaRequest,
   clientSchemaUpdate,

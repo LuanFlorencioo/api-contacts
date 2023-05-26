@@ -1,3 +1,7 @@
+import { 
+  iLoginRequest,
+  iLoginResponse,
+} from "./login";
 import {
   iClientRequest,
   iClientResponse,
@@ -6,6 +10,8 @@ import {
 } from "./clients";
 
 export {
+  iLoginRequest,
+  iLoginResponse,
   iClientRequest,
   iClientResponse,
   iClientUpdate,
