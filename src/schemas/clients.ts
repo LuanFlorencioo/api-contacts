@@ -6,7 +6,7 @@ const clientSchema = z.object({
   email: z.string().email().max(50),
   password: z.string().min(6).max(16),
   phone: z.string().max(25),
-  created_at: z.string(),
+  created_at: z.date(),
 })
 
 const clientSchemaRequest = clientSchema.omit({
