@@ -7,7 +7,6 @@ import {
   clientSchemaRequest,
   clientSchemaUpdate,
   clientSchemaResponse,
-  clientSchemaArray,  
 } from "./clients";
 
 export {
@@ -17,5 +16,4 @@ export {
   clientSchemaRequest,
   clientSchemaUpdate,
   clientSchemaResponse,
-  clientSchemaArray,
 }
