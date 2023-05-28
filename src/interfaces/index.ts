@@ -6,8 +6,12 @@ import {
   iClientRequest,
   iClientResponse,
   iClientUpdate,
-  iClientArray,
 } from "./clients";
+import {
+  iContactRequest,
+  iContactResponse,
+  iContactUpdate,
+} from "./contacts";
 
 export {
   iLoginRequest,
@@ -15,5 +19,7 @@ export {
   iClientRequest,
   iClientResponse,
   iClientUpdate,
-  iClientArray,
+  iContactRequest,
+  iContactResponse,
+  iContactUpdate,
 }
