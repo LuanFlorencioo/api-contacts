@@ -9,6 +9,14 @@ const createClient = async (req: Request, res: Response): Promise<Response> => {
   return res.status(201).json(clientCreated);
 }
 
+const readClient = async (req: Request, res: Response): Promise<Response> => {
+  const clientId: number = res.locals.client_id;
+  const clientFinded = await services.readClient(clientId);
+
+  return res.json(clientFinded);
+}
+
 export {
   createClient,
+  readClient,
 }

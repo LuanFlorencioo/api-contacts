@@ -11,6 +11,18 @@ const createClient = async (body: iClientRequest): Promise<iClientResponse> => {
   return clientCreated;
 }
 
+const readClient = async (clientId: number): Promise<iClientResponse> => {
+  const findClient: Client | null = await clientRepository.findOne({
+    where: { id: clientId },
+    relations: { contacts: true },
+  })
+
+  const client: iClientResponse = clientSchemaResponse.parse(findClient);
+
+  return client;
+}
+
 export {
   createClient,
+  readClient,
 }
