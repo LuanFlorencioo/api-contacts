@@ -15,8 +15,13 @@ const contactSchemaRequest = contactSchema.omit({
 
 const contactSchemaUpdate = contactSchemaRequest.partial();
 
+const contactSchemaArray = z.object({
+  contacts: contactSchema.array()
+})
+
 export {
   contactSchema,
   contactSchemaRequest,
   contactSchemaUpdate,
+  contactSchemaArray,
 }

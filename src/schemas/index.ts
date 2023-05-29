@@ -13,6 +13,7 @@ import {
   contactSchema,
   contactSchemaRequest,
   contactSchemaUpdate,
+  contactSchemaArray,
 } from "./contacts";
 
 export {
@@ -26,4 +27,5 @@ export {
   contactSchema,
   contactSchemaRequest,
   contactSchemaUpdate,
+  contactSchemaArray,
 }

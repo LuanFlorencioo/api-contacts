@@ -11,6 +11,7 @@ import {
   iContactRequest,
   iContactResponse,
   iContactUpdate,
+  iContactArray,
 } from "./contacts";
 
 export {
@@ -22,4 +23,5 @@ export {
   iContactRequest,
   iContactResponse,
   iContactUpdate,
+  iContactArray,
 }

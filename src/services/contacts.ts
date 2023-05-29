@@ -1,7 +1,7 @@
 import Client from "../entities/client.entities";
-import { iContactRequest, iContactResponse } from "../interfaces";
+import { iContactArray, iContactRequest, iContactResponse } from "../interfaces";
 import { clientRepository, contactRepository } from "../repositories";
-import { contactSchema } from "../schemas";
+import { contactSchema, contactSchemaArray } from "../schemas";
 
 const retrieveClient = async (id: number): Promise<Client> => {
   const client = (await clientRepository.findOneBy({ id }))!;
@@ -20,6 +20,17 @@ const createContact = async (body: iContactRequest, clientId: number): Promise<i
   return contactCreated;
 }
 
+const readContacts = async (clientId: number): Promise<iContactArray> => {
+  const findClient = await clientRepository.findOne({
+    where: { id: clientId },
+    relations: { contacts: true },
+  })
+  const contacts = contactSchemaArray.parse(findClient);
+
+  return contacts;
+}
+
 export {
   createContact,
+  readContacts,
 }

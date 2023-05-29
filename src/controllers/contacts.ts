@@ -10,6 +10,14 @@ const createContact = async (req: Request, res: Response): Promise<Response> => 
   return res.status(201).json(contactCreated);
 }
 
+const readContacts = async (req: Request, res: Response): Promise<Response> => {
+  const clientId: number = res.locals.client_id;
+  const contacts = await services.readContacts(clientId);
+
+  return res.json(contacts);
+}
+
 export {
   createContact,
+  readContacts,
 }

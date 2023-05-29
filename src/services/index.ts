@@ -10,6 +10,7 @@ import {
 } from "./clients";
 import {
   createContact,
+  readContacts,
 } from "./contacts";
 
 const services = {
@@ -20,6 +21,7 @@ const services = {
   updateClient,
   deleteClient,
   createContact,
+  readContacts,
 }
 
 export default services;

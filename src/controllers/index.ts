@@ -7,6 +7,7 @@ import {
 } from "./clients";
 import {
   createContact,
+  readContacts,
 } from "./contacts";
 
 export {
@@ -16,4 +17,5 @@ export {
   updateClient,
   deleteClient,
   createContact,
+  readContacts,
 }
