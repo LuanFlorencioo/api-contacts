@@ -8,6 +8,9 @@ import {
   updateClient,
   deleteClient,
 } from "./clients";
+import {
+  createContact,
+} from "./contacts";
 
 const services = {
   verifyCredentials,
@@ -16,6 +19,7 @@ const services = {
   readClient,
   updateClient,
   deleteClient,
+  createContact,
 }
 
 export default services;

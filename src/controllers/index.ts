@@ -5,6 +5,9 @@ import {
   updateClient,
   deleteClient,
 } from "./clients";
+import {
+  createContact,
+} from "./contacts";
 
 export {
   login,
@@ -12,4 +15,5 @@ export {
   readClient,
   updateClient,
   deleteClient,
+  createContact,
 }
