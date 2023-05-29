@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { iClientRequest } from "../interfaces";
+import { iClientRequest, iClientUpdate } from "../interfaces";
 import services from "../services";
 
 const createClient = async (req: Request, res: Response): Promise<Response> => {
@@ -16,7 +16,16 @@ const readClient = async (req: Request, res: Response): Promise<Response> => {
   return res.json(clientFinded);
 }
 
+const updateClient = async (req: Request, res: Response): Promise<Response> => {
+  const body: iClientUpdate = req.body;
+  const clientId: number = res.locals.client_id;
+  const clientUpdated = await services.updateClient(body, clientId);
+
+  return res.json(clientUpdated);
+}
+
 export {
   createClient,
   readClient,
+  updateClient,
 }

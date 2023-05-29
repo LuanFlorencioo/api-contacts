@@ -5,6 +5,7 @@ import {
 import {
   createClient,
   readClient,
+  updateClient,
 } from "./clients";
 
 const services = {
@@ -12,6 +13,7 @@ const services = {
   generateToken,
   createClient,
   readClient,
+  updateClient,
 }
 
 export default services;

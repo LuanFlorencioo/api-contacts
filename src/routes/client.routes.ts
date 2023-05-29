@@ -7,9 +7,10 @@ import {
 import {
   createClient,
   readClient,
+  updateClient,
 } from "../controllers";
 import {
-  clientSchemaRequest,
+  clientSchemaRequest, clientSchemaUpdate,
 } from "../schemas";
 
 const clientRouter: Router = Router();
@@ -24,7 +25,15 @@ clientRouter.post(
 clientRouter.get(
   "",
   ensuresAuth,
-  readClient,
+  readClient
+)
+
+clientRouter.patch(
+  "",
+  ensuresAuth,
+  validateBody(clientSchemaUpdate),
+  isEmailUnique,
+  updateClient
 )
 
 export default clientRouter;

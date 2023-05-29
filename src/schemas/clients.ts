@@ -8,13 +8,11 @@ const clientSchema = z.object({
   password: z.string().min(6).max(16),
   phone: z.string().max(25),
   created_at: z.date(),
-  contacts: z.array(contactSchema),
 })
 
 const clientSchemaRequest = clientSchema.omit({
   id: true,
   created_at: true,
-  contacts: true,
 })
 
 const clientSchemaUpdate = clientSchemaRequest.partial();
@@ -23,9 +21,14 @@ const clientSchemaResponse = clientSchema.omit({
   password: true,
 })
 
+const clientSchemaRetrieve = clientSchemaResponse.extend({
+  contacts: z.array(contactSchema),
+})
+
 export {
   clientSchema,
   clientSchemaRequest,
   clientSchemaUpdate,
   clientSchemaResponse,
+  clientSchemaRetrieve,
 }

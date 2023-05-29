@@ -7,6 +7,7 @@ import {
   clientSchemaRequest,
   clientSchemaUpdate,
   clientSchemaResponse,
+  clientSchemaRetrieve
 } from "./clients";
 import {
   contactSchema,
@@ -21,6 +22,7 @@ export {
   clientSchemaRequest,
   clientSchemaUpdate,
   clientSchemaResponse,
+  clientSchemaRetrieve,
   contactSchema,
   contactSchemaRequest,
   contactSchemaUpdate,
