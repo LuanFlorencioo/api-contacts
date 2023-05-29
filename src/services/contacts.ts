@@ -1,5 +1,9 @@
 import Client from "../entities/client.entities";
-import { iContactArray, iContactRequest, iContactResponse } from "../interfaces";
+import {
+  iContactArray,
+  iContactRequest,
+  iContactResponse,
+} from "../interfaces";
 import { clientRepository, contactRepository } from "../repositories";
 import { contactSchema, contactSchemaArray } from "../schemas";
 
@@ -21,11 +25,12 @@ const createContact = async (body: iContactRequest, clientId: number): Promise<i
 }
 
 const readContacts = async (clientId: number): Promise<iContactArray> => {
-  const findClient = await clientRepository.findOne({
-    where: { id: clientId },
-    relations: { contacts: true },
+  const findContacts = await contactRepository.find({
+    where: { client: { id: clientId } },
   })
-  const contacts = contactSchemaArray.parse(findClient);
+  const contacts = contactSchemaArray.parse({
+    contacts: findContacts
+  });
 
   return contacts;
 }
