@@ -24,8 +24,16 @@ const updateClient = async (req: Request, res: Response): Promise<Response> => {
   return res.json(clientUpdated);
 }
 
+const deleteClient = async (req: Request, res: Response): Promise<Response> => {
+  const clientId: number = res.locals.client_id;
+  await services.deleteClient(clientId);
+
+  return res.status(204).json();
+}
+
 export {
   createClient,
   readClient,
   updateClient,
+  deleteClient,
 }

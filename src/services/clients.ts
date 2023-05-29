@@ -34,8 +34,14 @@ const updateClient = async (body: iClientUpdate, clientId: number): Promise<iCli
   return clientUpdated;
 }
 
+const deleteClient = async (clientId: number): Promise<void> => {
+  const client: Client | null = await clientRepository.findOneBy({ id: clientId });
+  await clientRepository.remove(client!);
+}
+
 export {
   createClient,
   readClient,
   updateClient,
+  deleteClient,
 }

@@ -3,6 +3,7 @@ import {
   createClient,
   readClient,
   updateClient,
+  deleteClient,
 } from "./clients";
 
 export {
@@ -10,4 +11,5 @@ export {
   createClient,
   readClient,
   updateClient,
+  deleteClient,
 }
