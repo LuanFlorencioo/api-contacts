@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { ensuresAuth, ensuresClientExists, validateBody } from "../middlewares";
-import { contactSchemaRequest } from "../schemas";
-import { createContact, readContacts } from "../controllers";
+import { ensuresAuth, ensuresClientExists, ensuresContactExists, validateBody } from "../middlewares";
+import { contactSchemaRequest, contactSchemaUpdate } from "../schemas";
+import { createContact, deleteContact, readContacts, updateContact } from "../controllers";
 
 const contactRouter: Router = Router();
 
@@ -18,6 +18,23 @@ contactRouter.get(
   ensuresAuth,
   ensuresClientExists,
   readContacts
+)
+
+contactRouter.patch(
+  "/:contact_id",
+  ensuresAuth,
+  ensuresClientExists,
+  ensuresContactExists,
+  validateBody(contactSchemaUpdate),
+  updateContact
+)
+
+contactRouter.delete(
+  "/:contact_id",
+  ensuresAuth,
+  ensuresClientExists,
+  ensuresContactExists,
+  deleteContact
 )
 
 export default contactRouter;

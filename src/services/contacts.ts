@@ -3,6 +3,7 @@ import {
   iContactArray,
   iContactRequest,
   iContactResponse,
+  iContactUpdate,
 } from "../interfaces";
 import { clientRepository, contactRepository } from "../repositories";
 import { contactSchema, contactSchemaArray } from "../schemas";
@@ -35,7 +36,33 @@ const readContacts = async (clientId: number): Promise<iContactArray> => {
   return contacts;
 }
 
+const updateContact = async (body: iContactUpdate, clientId: number, contactId: string): Promise<iContactResponse> => {
+  const contact = await contactRepository.findOneBy({
+    id: contactId,
+    client: { id: clientId },
+  })
+
+  const update = contactRepository.create({
+    ...contact,
+    ...body,
+  })
+  await contactRepository.save(update);
+  const contactUpdated: iContactResponse = contactSchema.parse(update);
+
+  return contactUpdated;
+}
+
+const deleteContact = async (clientId: number, contactId: string): Promise<void> => {
+  const contact = await contactRepository.findOneBy({
+    id: contactId,
+    client: { id: clientId },
+  })
+  await contactRepository.remove(contact!);
+}
+
 export {
   createContact,
   readContacts,
+  updateContact,
+  deleteContact,
 }

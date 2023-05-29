@@ -8,6 +8,8 @@ import {
 import {
   createContact,
   readContacts,
+  updateContact,
+  deleteContact,
 } from "./contacts";
 
 export {
@@ -18,4 +20,6 @@ export {
   deleteClient,
   createContact,
   readContacts,
+  updateContact,
+  deleteContact,
 }
