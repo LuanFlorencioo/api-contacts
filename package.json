@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --ignore-watch  --cls --rs src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "build": "tsc",
     "start": "node dist/server.js"
